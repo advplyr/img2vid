@@ -1,6 +1,6 @@
 {
   "name": "img2vid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Using FFMPEG convert images to a video slideshow with audio and captions.",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,9 @@
   "dependencies": {
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcoop320/img2vid.git"
   }
 }

@@ -96,13 +96,14 @@ npm install img2vid
 | jitterScale | N        | 2       | Number\|False | Temp scale image up to reduce jitter |
 
 ## Caption Options
-| key        | required | default | type   | description             |
-|------------|----------|---------|--------|-------------------------|
-| text       | Y        |         | String | image filepath          |
-| start      | Y        | 0       | Number | Seconds in total output |
-| end        | Y        | 0       | Number | Seconds in total output |
+| key        | required | default | type   | description               |
+|------------|----------|---------|--------|---------------------------|
+| text       | Y        |         | String | image filepath            |
+| start      | Y        | 0       | Number | Seconds in total output   |
+| end        | Y        | 0       | Number | Seconds in total output   |
+| style      | N        |         | Object | Style Options Coming Soon |
 
 ## Available Slide Transitions
-<a href="https://trac.ffmpeg.org/wiki/Xfade">View transitions types and demos</a> available from FFMPEG xfade filter.
+<a href="https://trac.ffmpeg.org/wiki/Xfade" target="_blank">View transitions types and demos</a> available from FFMPEG xfade filter.
 
 <img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/basic.webp" width="100%" align="center" />
