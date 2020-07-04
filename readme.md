@@ -2,6 +2,8 @@
 
 Generate videos or gifs from images. Includes captions, audio, transitions and zoompan.
 
+<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/transitions.webp" width="100%" align="center" />
+
 ## Requires
 
 **[ffmpeg](http://ffmpeg.org)** with `--enable-libass`
@@ -93,3 +95,5 @@ npm install img2vid
 | xEnd        | Y        | 0       | Number        | End X Position                       |
 | yEnd        | Y        | 0       | Number        | End Y Position                       |
 | jitterScale | N        | 2       | Number\|False | Temp scale image up to reduce jitter |
+
+<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/basic.webp" width="100%" align="center" />
