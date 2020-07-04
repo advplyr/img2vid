@@ -17,7 +17,8 @@ npm install img2vid
 ## Example Usage
 
 ```js
-{
+var img2vid = require('img2vid')
+var payload = {
   slides: [
     {
       path: 'examples/exampleData/squirrel.jpg',
@@ -49,7 +50,9 @@ npm install img2vid
   assOutput: 'examples/outputs/simple.ass',
   forceScale: true
 }
+img2vid.render(payload)
 ```
+
 
 ## Options
 | key        | required             | default    | type     | description                                  |
@@ -68,6 +71,7 @@ npm install img2vid
 | gifLoop    | N                    | true       | Boolean  | Continually loop Gifs/Webp outputs           |
 | verbose    | N                    | true       | Boolean  | Show Logs                                    |
 
+
 ## Slide Options
 | key        | required | default | type   | description                                   |
 |------------|----------|---------|--------|-----------------------------------------------|
@@ -76,11 +80,13 @@ npm install img2vid
 | transition | N        |         | Object | [See Transition Options](#transition-options) |
 | zoomPan    | N        |         | Object | [See ZoomPan Options](#zoompan-options)       |
 
+
 ## Transition Options
 | key      | required | default | type   | description                                               |
 |----------|----------|---------|--------|-----------------------------------------------------------|
 | type     | Y        |         | String | [See Available Transitions](#available-slide-transitions) |
 | duration | Y        | 1       | Number | Seconds to transition                                     |
+
 
 ## ZoomPan Options
 | key         | required | default | type          | description                          |
@@ -95,6 +101,7 @@ npm install img2vid
 | yEnd        | Y        | 0       | Number        | End Y Position                       |
 | jitterScale | N        | 2       | Number\|False | Temp scale image up to reduce jitter |
 
+
 ## Caption Options
 | key        | required | default | type   | description               |
 |------------|----------|---------|--------|---------------------------|
@@ -102,6 +109,7 @@ npm install img2vid
 | start      | Y        | 0       | Number | Seconds in total output   |
 | end        | Y        | 0       | Number | Seconds in total output   |
 | style      | N        |         | Object | Style Options Coming Soon |
+
 
 ## Available Slide Transitions
 <a href="https://trac.ffmpeg.org/wiki/Xfade" target="_blank">View transitions types and demos</a> available from FFMPEG xfade filter.
