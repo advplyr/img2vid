@@ -54,8 +54,8 @@ npm install img2vid
 ## Options
 | key        | required             | default    | type     | description                                  |
 |------------|----------------------|------------|----------|----------------------------------------------|
-| slides     | Y                    |            | [Object] |                                              |
-| captions   | N                    |            | [Object] |                                              |
+| slides     | Y                    |            | [Object] | [See Slide Options](#slide-options)          |
+| captions   | N                    |            | [Object] | [See Caption Options](#caption-options)      |
 | width      | Y                    | 640        | Number   | Pixels                                       |
 | height     | Y                    | 480        | Number   | Pixels                                       |
 | output     | Y                    | output.mp4 | String   | filepath.[mp4/gif/webp]                      |
@@ -69,19 +69,18 @@ npm install img2vid
 | verbose    | N                    | true       | Boolean  | Show Logs                                    |
 
 ## Slide Options
-| key        | required | default | type   | description    |
-|------------|----------|---------|--------|----------------|
-| path       | Y        |         | String | image filepath |
-| duration   | Y        | 2       | Number | Seconds        |
-| transition | N        |         | Object |                |
-| zoomPan    | N        |         | Object |                |
+| key        | required | default | type   | description                                   |
+|------------|----------|---------|--------|-----------------------------------------------|
+| path       | Y        |         | String | image filepath                                |
+| duration   | Y        | 2       | Number | Seconds                                       |
+| transition | N        |         | Object | [See Transition Options](#transition-options) |
+| zoomPan    | N        |         | Object | [See ZoomPan Options](#zoompan-options)       |
 
 ## Transition Options
-| key      | required | default | type   | description               |
-|----------|----------|---------|--------|---------------------------|
-| type     | Y        |         | String | See available transitions |
-| duration | Y        | 1       | Number | Seconds to transition     |
-
+| key      | required | default | type   | description                                               |
+|----------|----------|---------|--------|-----------------------------------------------------------|
+| type     | Y        |         | String | [See Available Transitions](#available-slide-transitions) |
+| duration | Y        | 1       | Number | Seconds to transition                                     |
 
 ## ZoomPan Options
 | key         | required | default | type          | description                          |
@@ -95,5 +94,15 @@ npm install img2vid
 | xEnd        | Y        | 0       | Number        | End X Position                       |
 | yEnd        | Y        | 0       | Number        | End Y Position                       |
 | jitterScale | N        | 2       | Number\|False | Temp scale image up to reduce jitter |
+
+## Caption Options
+| key        | required | default | type   | description             |
+|------------|----------|---------|--------|-------------------------|
+| text       | Y        |         | String | image filepath          |
+| start      | Y        | 0       | Number | Seconds in total output |
+| end        | Y        | 0       | Number | Seconds in total output |
+
+## Available Slide Transitions
+<a href="https://trac.ffmpeg.org/wiki/Xfade">View transitions types and demos</a> available from FFMPEG xfade filter.
 
 <img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/basic.webp" width="100%" align="center" />
