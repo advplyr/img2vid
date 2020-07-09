@@ -50,30 +50,6 @@ function generateLineTags(tags) {
   return tagLine
 }
 
-function formatSlideCaptions(slides) {
-  const captions = []
-  let totalSlideTime = 0
-  for (let i = 0; i < slides.length; i++) {
-    const slide = slides[i]
-    const slideDuration = slide.duration || 5
-    if (slide.caption) {
-      const caption = slide.caption
-      const captionDelay = caption.delay || 0
-      const captionDuration = slide.caption.duration || (slideDuration - captionDelay)
-      const slideStart = totalSlideTime + captionDelay
-      const slideEnd = slideStart + captionDuration
-      captions.push({
-        start: slideStart,
-        end: slideEnd,
-        text: caption.text,
-        style: caption.style || null
-      })
-    }
-    totalSlideTime += slideDuration
-  }
-  return captions
-}
-
 String.prototype.toHHMMSS = function () {
   var sec_num = parseInt(this, 10); // don't forget the second param
   var ms = this - sec_num
@@ -82,7 +58,6 @@ String.prototype.toHHMMSS = function () {
   var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
   var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-  // if (hours < 10) { hours = "0" + hours; }
   if (minutes < 10) { minutes = "0" + minutes; }
   if (seconds < 10) { seconds = "0" + seconds; }
   if (ms_num < 10) ms_num = "0" + ms_num

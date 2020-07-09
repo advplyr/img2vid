@@ -1,7 +1,6 @@
 const ffmpeg = require('fluent-ffmpeg')
 const assgen = require('./utils/generateAssFile')
 const filters = require('./utils/filters')
-const fs = require('fs')
 
 function renderVideo(vid, output, verbose) {
   return new Promise((resolve, reject) => {

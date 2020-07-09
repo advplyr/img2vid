@@ -1,4 +1,2 @@
 node_modules
-/exampleData
-output
-test.js
+.test

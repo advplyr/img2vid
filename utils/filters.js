@@ -100,8 +100,6 @@ function generateFilters(slides, forceScale, width, height) {
 
   let lastTrans = 0
   let totalDuration = 0
-  // Transitions
-  // if (hasTransitions) {
   let lastOutput = slides[0].inputTag || '0'
   for (let i = 0; i < slides.length - 1; i++) {
     let nextInput = slides[i + 1].inputTag || String(i + 1)
@@ -118,17 +116,6 @@ function generateFilters(slides, forceScale, width, height) {
     lastOutputTag = `v${slides.length - 1}`
   }
   totalDuration = slideStart + (slides[slides.length - 1].duration)
-  // } else {
-  //   console.log('No Transitions')
-  //   let concatFilter = ''
-  //   for (let i = 0; i < slides.length; i++) {
-  //     let inputTag = slides[i].inputTag || String(i)
-  //     concatFilter += `[${inputTag}]`
-  //     totalDuration += slides[i].duration
-  //   }
-  //   concatFilter += `concat=n=${slides.length}:v=1:a=0[v1]`
-  //   complexFilters.push(concatFilter)
-  // }
 
   return {
     totalDuration: totalDuration,
@@ -139,7 +126,3 @@ function generateFilters(slides, forceScale, width, height) {
 }
 
 exports.generateFilters = generateFilters
-
-/*
-ffmpeg -loop 1 -i examples/exampleData/squirrel.jpg -loop 1 -t 5 -i examples/exampleData/cassettes.jpg -y -filter_complex "[0]scale=640:419,setsar=1[s0];[1]scale=640:419,setsar=1[s1];[s0][s1]concat=n=2:v=1:a=0[v1];[v1]format=yuv420p,scale=640:419[v];[v]ass=examples/outputs/captions.ass[vf]" -map [vf] -t 10 -y -loop 0 examples/outputs/captions.webp
-*/
