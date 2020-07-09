@@ -11,18 +11,34 @@ const cleanColor = (v) => {
   }
 }
 
+const tagAliases = {
+  'fn': 'fontName',
+  'fs': 'fontSize',
+  'bord': 'borderSize',
+  'borderWidth': 'borderSize',
+  'pos': 'position',
+  'alignment': 'lineAlignment',
+  'an': 'lineAlignment',
+  'b': 'bold',
+  'i': 'italics',
+  'u': 'underline',
+  's': 'strikeout',
+  'shad': 'shadow',
+  'fad': 'fade',
+  'fscx': 'scaleX',
+  'fscy': 'scaleY',
+  't': 'animate'
+}
+
 const tagRenderer = {
   'fontName': {
-    tag: 'fn',
-    rend: v => v
+    tag: 'fn'
   },
   'fontSize': {
-    tag: 'fs',
-    rend: v => v
+    tag: 'fs'
   },
   'borderSize': {
-    tag: 'bord',
-    rend: v => v
+    tag: 'bord'
   },
   'color': {
     tag: '1c',
@@ -50,8 +66,10 @@ const tagRenderer = {
     }
   },
   'scaleX': {
-    tag: 'fscx',
-    rend: (v) => v
+    tag: 'fscx'
+  },
+  'scaleY': {
+    tag: 'fscy'
   },
   'animate': {
     tag: 't',
@@ -62,8 +80,7 @@ const tagRenderer = {
     rend: (v) => `(${v.join(',')})`
   },
   'shadow': {
-    tag: 'shad',
-    rend: (v) => v
+    tag: 'shad'
   },
   'shadowColor': {
     tag: '4c',
@@ -91,4 +108,22 @@ const tagRenderer = {
   }
 }
 
-module.exports.tagRenderer = tagRenderer
+function renderTag(key, val) {
+  if (!tagRenderer[key]) {
+    if (tagAliases[key]) {
+      key = tagAliases[key]
+    } else {
+      return ''
+    }
+  }
+  const tag = tagRenderer[key].tag
+
+  let renderedValue = val
+  if (tagRenderer[key].rend) {
+    renderedValue = tagRenderer[key].rend(val)
+  }
+
+  return '\\' + tag + renderedValue
+}
+
+module.exports.renderTag = renderTag

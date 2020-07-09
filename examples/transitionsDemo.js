@@ -44,8 +44,7 @@ exports.input = {
       end: 2,
       style: {
         fontSize: 40,
-        lineAlignment: 'center center',
-        position: [320, 210]
+        lineAlignment: 'middle center'
       }
     },
     {
@@ -54,8 +53,7 @@ exports.input = {
       end: 4,
       style: {
         fontSize: 40,
-        lineAlignment: 'center center',
-        position: [320, 210]
+        lineAlignment: 'middle center'
       }
     },
     {
@@ -64,8 +62,7 @@ exports.input = {
       end: 6,
       style: {
         fontSize: 40,
-        lineAlignment: 'center center',
-        position: [320, 210]
+        lineAlignment: 'middle center'
       }
     },
     {
@@ -74,8 +71,7 @@ exports.input = {
       end: 8,
       style: {
         fontSize: 40,
-        lineAlignment: 'center center',
-        position: [320, 210]
+        lineAlignment: 'middle center'
       }
     },
     {
@@ -83,7 +79,6 @@ exports.input = {
       start: 0,
       end: 9,
       style: {
-        pos: [640, 360],
         lineAlignment: 'bottom right'
       }
     }

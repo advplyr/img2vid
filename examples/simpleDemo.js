@@ -19,7 +19,6 @@ exports.input = {
       start: 0,
       end: 6,
       style: {
-        pos: [640, 360],
         lineAlignment: 'bottom right'
       }
     }

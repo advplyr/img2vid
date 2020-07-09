@@ -1,0 +1,22 @@
+[Script Info]
+Title: Img2Vid Subtitles
+ScriptType: v4.00+
+Collisions: Normal
+PlayResY: 419
+PlayResX: 640
+Timer: 100,0000
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: t1, Arial,28,&H00FFFFFF,&H00000000,&H00000000,&H80000000,-1,0,0,0,100,100,0.00,0.00,1,2.00,0.00,7,0,0,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{}No Styles
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\an5}lineAlignment: middle center
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\an9}lineAlignment: top right
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\pos(50,100)}pos: [50,100]
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\fs30\pos(350,100)\1c&H0000FF&\bord4\3c&HFF0000&\shad6\4c&H000000&\4a&H40&\i1\fscx160\fscy75}color,border,shadow
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\move(0,375,200,300)\an1}move: [0, 375, 200, 300]
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\an2\fad(1000,2000)}fade: [1000,2000]
+Dialogue: 0,0:00:00.00,0:00:05.00,t1,CAP,0000,0000,0000,,{\fs18\an3}Img2Vid

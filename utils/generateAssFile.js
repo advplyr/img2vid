@@ -1,12 +1,31 @@
 var fs = require("fs")
 const assTagRenderer = require('./assTagRenderer')
 
-// Original Script: RoRo
-// Script Updated By: version 2.8.01
-// Video Aspect Ratio: 0
-// Video Zoom: 6
-// Video Position: 0
-// PlayDepth: 0
+const defaultStyle = [
+  'Arial',
+  '28',
+  '&H00FFFFFF',
+  '&H00000000', // Secondary Color
+  '&H00000000', // Outline Color
+  '&H80000000', // Back Color
+  '-1', // Bold
+  '0', // Italic
+  '0', // Underline
+  '0', // StrikeOut
+  '100', // ScaleX
+  '100', // ScaleY
+  '0.00', // Spacing
+  '0.00', // Angle
+  '1', // BorderStyle
+  '2.00', // Outline
+  '0.00', // Shadow
+  '7', // Alignment
+  '0', // MarginL
+  '0', // MarginR
+  '0', // MarginV
+  '0' // Encoding
+]
+
 const defaultFile = `[Script Info]
 Title: Img2Vid Subtitles
 ScriptType: v4.00+
@@ -17,24 +36,16 @@ Timer: 100,0000
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: t1, Nectar,28,&H00B4FCFC,&H00B4FCFC,&H00000008,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,0.00,0.00,2,0,0,0,0
-Style: t2, Nectar Regular,28,&H00B4FCFC,&H00B4FCFC,&H00000008,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,1.00,2.00,2,30,30,30,0
-Style: t3, Nectar Bold,28,&H00B4FCFC,&H00B4FCFC,&H00000008,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,0.00,0.00,2,30,30,30,0
-Style: t4, Nectar Light,28,&H00B4FCFC,&H00B4FCFC,&H00000008,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,0.00,0.00,2,30,30,30,0
- 
+Style: t1, ${defaultStyle.join(',')}
+
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
 
 function generateLineTags(tags) {
   let tagLine = ''
   for (const key in tags) {
-    if (assTagRenderer.tagRenderer[key]) {
-      const renderedTag = assTagRenderer.tagRenderer[key].rend(tags[key])
-      // console.log('Got rendered tag', key, renderedTag)
-      const fullBoy = '\\' + assTagRenderer.tagRenderer[key].tag + renderedTag
-      // console.log('full boy', fullBoy)
-      tagLine += fullBoy
-    }
+    const lineTagStr = assTagRenderer.renderTag(key, tags[key])
+    tagLine += lineTagStr
   }
   return tagLine
 }
@@ -83,7 +94,7 @@ function generate(width, height, output, captions) {
   let subBoy = ''
   captions.forEach((cap) => {
     const tags = generateLineTags(cap.style)
-    let dialogue = `\nDialogue: 0,${String(cap.start).toHHMMSS()},${String(cap.end).toHHMMSS()},t1, NTP,0000,0000,0000,,{${tags}}${cap.text}`
+    let dialogue = `\nDialogue: 0,${String(cap.start).toHHMMSS()},${String(cap.end).toHHMMSS()},t1,CAP,0000,0000,0000,,{${tags}}${cap.text}`
     subBoy += dialogue
   })
   const fullFile = assFileContent + subBoy

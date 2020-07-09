@@ -66,7 +66,7 @@ exports.input = {
         fontName: 'Arial',
         color: '#000000',
         bold: true,
-        lineAlignment: 'center center',
+        lineAlignment: 'middle center',
         fade: [0, 500],
         animate: `0,2000,0.5,\\frz720`,
         shadow: 3,
@@ -79,7 +79,6 @@ exports.input = {
       start: 0,
       end: 9,
       style: {
-        pos: [640, 360],
         lineAlignment: 'bottom right'
       }
     }

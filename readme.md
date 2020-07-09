@@ -37,11 +37,7 @@ var payload = {
     {
       text: 'Img2Vid',
       start: 0,
-      end: 6,
-      style: {
-        pos: [640, 360],
-        lineAlignment: 'bottom right'
-      }
+      end: 6
     }
   ],
   width: 640,
@@ -103,13 +99,35 @@ img2vid.render(payload)
 
 
 ## Caption Options
-| key        | required | default | type   | description               |
-|------------|----------|---------|--------|---------------------------|
-| text       | Y        |         | String | image filepath            |
-| start      | Y        | 0       | Number | Seconds in total output   |
-| end        | Y        | 0       | Number | Seconds in total output   |
-| style      | N        |         | Object | Style Options Coming Soon |
+| key        | required | default | type   | description                                 |
+|------------|----------|---------|--------|---------------------------------------------|
+| text       | Y        |         | String | image filepath                              |
+| start      | Y        | 0       | Number | Seconds in total output                     |
+| end        | Y        | 0       | Number | Seconds in total output                     |
+| style      | N        |         | Object | [See Style Options](#caption-style-options) |
 
+
+## Caption Style Options
+| key           | alias | default  | type            | description                                                           |
+|---------------|-------|----------|-----------------|-----------------------------------------------------------------------|
+| fontName      | fn    | Arial    | String          | [x,y] position in pixels                                              |
+| fontSize      | fs    | 28       | Number          |                                                                       |
+| borderSize    | bord  | 2        | Number          |                                                                       |
+| color         |       | #FFFFFF  | String          | Must be 6 char hex color                                              |
+| borderColor   |       | #000000  | String          | Must be 6 char hex color                                              |
+| fade          | fad   |          | [Number,Number] | [fadeIn,fadeOut] in ms                                                |
+| position      | pos   |          | [Number,Number] | [x,y] in pixels                                                       |
+| lineAlignment | an    | top left | String          | top,middle,bottom left,center,right                                   |
+| scaleX        | fscx  | 100      | Number          | as a percentage                                                       |
+| scaleY        | fscy  | 100      | Number          | as a percentage                                                       |
+| animate       | t     |          | String          | [See animate string syntax](http://docs.aegisub.org/3.2/ASS_Tags/#\t) |
+| move          |       |          | Number[4]       | [startX,startY,endX,endY]                                             |
+| shadow        | shad  |          | Number          | depth of shadow                                                       |
+| shadowColor   |       |          | String          | Must be 6 char hex color                                              |
+| shadowAlpha   |       |          | String          | Must be 2 char hex alpha color                                        |
+| bold          | b     | 1        | Number          | 1 or 0                                                                |
+
+<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/captions.webp" width="100%" align="center" />
 
 ## Available Slide Transitions
 <a href="https://trac.ffmpeg.org/wiki/Xfade" target="_blank">View transitions types and demos</a> available from FFMPEG xfade filter.

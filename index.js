@@ -21,7 +21,7 @@ function renderVideo(vid, output, verbose) {
 async function generate(input) {
   const audioFile = input.audio
   const slides = input.slides
-  const duration = input.duration || 2
+  const duration = input.duration
   const captions = input.captions
   const output = input.output || 'output.mp4'
   const assFile = input.assOutput || 'subs.ass'
@@ -59,7 +59,7 @@ async function generate(input) {
     }
   }
 
-  let { totalDuration, complexFilters, lastTransitionDuration } = filters.generateFilters(slides, forceScale, videoWidth, videoHeight)
+  let { totalDuration, complexFilters, lastTransitionDuration, lastOutputTag } = filters.generateFilters(slides, forceScale, videoWidth, videoHeight)
 
   for (let i = 0; i < slides.length; i++) {
     const slide = slides[i]
@@ -75,7 +75,8 @@ async function generate(input) {
   if (input.width && input.height) {
     _scale = `,scale=${input.width}:${input.height}`
   }
-  let scaleFormatFilter = `[v${numSlides - 1}]format=yuv420p${_scale}[v]`
+  let inputTag = lastOutputTag ? `[${lastOutputTag}]` : ''
+  let scaleFormatFilter = `${inputTag}format=yuv420p${_scale}[v]`
   let lastOutput = 'v'
   complexFilters.push(scaleFormatFilter)
 
