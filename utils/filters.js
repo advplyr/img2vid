@@ -75,13 +75,13 @@ function generateFilters(slides, forceScale, width, height) {
       const slide = slides[i]
       const zoomPan = slide.zoomPan ? getZoomPanData(slide.zoomPan) : null
       if (zoomPan) {
-        const zoomPanFilt = `[${i}]${getZoomPanFilter(zoomPan, slide.duration, width, height)}[${i}zp]`
+        const zoomPanFilt = `[${i}:v]${getZoomPanFilter(zoomPan, slide.duration, width, height)},settb=AVTB[${i}zp]`
         complexFilters.push(zoomPanFilt)
       } else {
         // Workaround: When some images are scaled they cannot be xfade'ed with images that are not scaled.
         // TODO: possibly big performance hit for doing this
         // const zoomPanFilt = `[${i}]scale=-1:-1[${i}zp]`
-        const zoomPanFilt = `[${i}]scale=${width}:${height}[${i}zp]`
+        const zoomPanFilt = `[${i}:v]settb=AVTB,scale=${width}:${height}[${i}zp]`
         complexFilters.push(zoomPanFilt)
       }
       slide.inputTag = `${i}zp`
@@ -90,13 +90,13 @@ function generateFilters(slides, forceScale, width, height) {
   } else if (forceScale) {
     for (let i = 0; i < slides.length; i++) {
       const slide = slides[i]
-      const scaleFilt = `[${i}]scale=${width}:${height}[${i}s]`
+      // TODO: Test performance hit of timebase
+      let scaleFilt = `[${i}:v]settb=AVTB,scale=${width}:${height}[${i}s]`
       complexFilters.push(scaleFilt)
       slide.inputTag = `${i}s`
       lastOutputTag = slide.inputTag
     }
   }
-
 
   let lastTrans = 0
   let totalDuration = 0

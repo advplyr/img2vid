@@ -64,11 +64,16 @@ async function generate(input) {
   for (let i = 0; i < slides.length; i++) {
     const slide = slides[i]
     vid.input(slide.path)
-    const inputOptions = ['-loop 1']
+    const inputOptions = []
+    if (!slide.isVideo) {
+      inputOptions.push('-loop 1')
+    }
     if (i === slides.length - 1) {
       inputOptions.push('-t ' + (slide.duration + lastTransitionDuration))
     }
-    vid.inputOptions(inputOptions)
+    if (inputOptions.length > 0) {
+      vid.inputOptions(inputOptions)
+    }
   }
 
   let _scale = ''
