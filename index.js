@@ -97,7 +97,12 @@ async function generate(input) {
     const height = watermark.height && !isNaN(watermark.height) ? watermark.height : -1
     const x = watermark.x && !isNaN(watermark.x) ? watermark.x : 10
     const y = watermark.y && !isNaN(watermark.y) ? watermark.y : 10
-    complexFilters.push(`[${indexOfWatermark}]scale=${width}:${height}[watermark]`)
+    const alpha = watermark.alpha && !isNaN(watermark.alpha) ? Number(watermark.alpha) : 1
+    let alphaFilter = ''
+    if (alpha !== 1) {
+      alphaFilter = `format=argb,geq=r='r(X,Y)':a='${alpha}*alpha(X,Y)',`
+    }
+    complexFilters.push(`[${indexOfWatermark}]${alphaFilter}scale=${width}:${height}[watermark]`)
     complexFilters.push(`[${lastOutput}][watermark]overlay=${x}:${y}[vw]`)
     lastOutput = 'vw'
     watermarkAdded = true

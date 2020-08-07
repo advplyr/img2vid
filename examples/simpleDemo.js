@@ -33,6 +33,7 @@ exports.input = {
     width: 125,
     height: -1,
     x: (640 - 125 - 10),
-    y: 385
+    y: 385,
+    alpha: 0.75
   }
 }

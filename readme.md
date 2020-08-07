@@ -138,6 +138,7 @@ img2vid.render(payload)
 | width  | N        | -1      | Number        | Pixels (-1 to keep aspect ratio)     |
 | x      | N        | 10      | Number        | Pixels                               |
 | y      | N        | 10      | Number        | Pixels                               |
+| alpha  | N        | 1       | Number        | Opacity of image (Between 0 and 1)   |
 
 <img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/captions.webp" width="100%" align="center" />
 
