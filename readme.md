@@ -1,6 +1,6 @@
 # img2vid [![npm version](https://badge.fury.io/js/img2vid.svg)](https://badge.fury.io/js/img2vid)
 
-Generate videos or gifs from images. Includes captions, audio, transitions and zoompan.
+Generate videos or gifs from images. Includes captions, audio, transitions, zoompan and a watermark image.
 
 <img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/transitions.webp" width="100%" align="center" />
 
@@ -58,15 +58,15 @@ img2vid.render(payload)
 | width      | Y                    | 640        | Number   | Pixels                                       |
 | height     | Y                    | 480        | Number   | Pixels                                       |
 | output     | Y                    | output.mp4 | String   | filepath.[mp4/gif/webp]                      |
-| forceScale | N                    | false      | Boolean  | Use if input images are different sizes      |
-| duration   | N                    |            | Number   | Output Duration                              |
 | assOutput  | Y iff using captions | subs.ass   | String   | ASS File Output - filepath.ass               |
-| hardSub    | N                    | true       | Boolean  | Render captions over output                  |
 | audio      | N                    |            | String   | Path to audio file                           |
 | genpalette | N                    | false      | Boolean  | Generate color palette for Gifs/Webp outputs |
+| forceScale | N                    | false      | Boolean  | Use if input images are different sizes      |
+| duration   | N                    |            | Number   | Output Duration                              |
 | gifLoop    | N                    | true       | Boolean  | Continually loop Gifs/Webp outputs           |
+| hardSub    | N                    | true       | Boolean  | Render captions over output                  |
 | verbose    | N                    | true       | Boolean  | Show Logs                                    |
-
+| watermark  | N                    |            | Object   | [See Watermark Options](#watermark-options)  |
 
 ## Slide Options
 | key        | required | default | type   | description                                   |
@@ -126,6 +126,18 @@ img2vid.render(payload)
 | shadowColor   |       |          | String          | Must be 6 char hex color                                              |
 | shadowAlpha   |       |          | String          | Must be 2 char hex alpha color                                        |
 | bold          | b     | 1        | Number          | 1 or 0                                                                |
+| italics       | i     | 0        | Number          | 1 or 0                                                                |
+| underline     | u     | 0        | Number          | 1 or 0                                                                |
+| strikeout     | s     | 0        | Number          | 1 or 0                                                                |
+
+## Watermark Options
+| key    | required | default | type          | description                          |
+|--------|----------|---------|---------------|--------------------------------------|
+| path   | Y        | 0       | String        | Path to watermark image              |
+| height | N        | 100     | Number        | Pixels (-1 to keep aspect ratio)     |
+| width  | N        | -1      | Number        | Pixels (-1 to keep aspect ratio)     |
+| x      | N        | 10      | Number        | Pixels                               |
+| y      | N        | 10      | Number        | Pixels                               |
 
 <img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/captions.webp" width="100%" align="center" />
 

@@ -57,6 +57,7 @@ exports.input = {
       end: 5,
       style: {
         move: [0, 375, 200, 300],
+        fade: [1000, 1000],
         lineAlignment: 'bottom left'
       }
     },

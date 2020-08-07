@@ -2,14 +2,14 @@
 Title: Img2Vid Subtitles
 ScriptType: v4.00+
 Collisions: Normal
-PlayResY: 419
+PlayResY: 420
 PlayResX: 640
 Timer: 100,0000
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: t1, Arial,28,&H00FFFFFF,&H00000000,&H00000000,&H80000008,-1,0,0,0,100,100,0.00,0.00,1,0.00,0.00,2,0,0,0,0
+Style: t1, Arial,28,&H00FFFFFF,&H00000000,&H00000000,&H80000000,-1,0,0,0,100,100,0.00,0.00,1,2.00,0.00,7,0,0,0,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:06.00,t1, NTP,0000,0000,0000,,{\an3}Img2Vid
+Dialogue: 0,0:00:00.00,0:00:06.00,t1,CAP,0000,0000,0000,,{\an5}Caption & Watermark

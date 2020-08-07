@@ -15,17 +15,24 @@ exports.input = {
   ],
   captions: [
     {
-      text: 'Img2Vid',
+      text: 'Caption & Watermark',
       start: 0,
       end: 6,
       style: {
-        lineAlignment: 'bottom right'
+        lineAlignment: 'middle center'
       }
     }
   ],
   width: 640,
-  height: 419,
+  height: 420,
   output: 'examples/outputs/simple.webp',
   assOutput: 'examples/outputs/simple.ass',
-  forceScale: true
+  forceScale: true,
+  watermark: {
+    path: 'examples/exampleData/FotoshoLogo.png',
+    width: 125,
+    height: -1,
+    x: (640 - 125 - 10),
+    y: 385
+  }
 }

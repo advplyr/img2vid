@@ -33,6 +33,7 @@ async function generate(input) {
   const otherOutputOptions = input.otherOutputOptions || null
   const hardSub = input.hardSub === undefined || !!input.hardSub
   const verbose = input.verbose === undefined || !!input.verbose
+  const watermark = input.watermark || false
 
   const startTime = Date.now()
 
@@ -85,6 +86,19 @@ async function generate(input) {
     complexFilters.push('[a]palettegen[p]')
     complexFilters.push('[b][p]paletteuse[vp]')
     lastOutput = 'vp'
+  }
+
+  // Scale and overlay watermark
+  if (watermark && watermark.path) {
+    vid.input(watermark.path)
+    const indexOfWatermark = numSlides
+    const width = watermark.width && !isNaN(watermark.width) ? watermark.width : 100
+    const height = watermark.height && !isNaN(watermark.height) ? watermark.height : -1
+    const x = watermark.x && !isNaN(watermark.x) ? watermark.x : 10
+    const y = watermark.y && !isNaN(watermark.y) ? watermark.y : 10
+    complexFilters.push(`[${indexOfWatermark}]scale=${width}:${height}[watermark]`)
+    complexFilters.push(`[${lastOutput}][watermark]overlay=${x}:${y}[vw]`)
+    lastOutput = 'vw'
   }
 
   // Audio Input
