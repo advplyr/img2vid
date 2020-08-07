@@ -89,6 +89,7 @@ async function generate(input) {
   }
 
   // Scale and overlay watermark
+  let watermarkAdded = false
   if (watermark && watermark.path) {
     vid.input(watermark.path)
     const indexOfWatermark = numSlides
@@ -99,6 +100,7 @@ async function generate(input) {
     complexFilters.push(`[${indexOfWatermark}]scale=${width}:${height}[watermark]`)
     complexFilters.push(`[${lastOutput}][watermark]overlay=${x}:${y}[vw]`)
     lastOutput = 'vw'
+    watermarkAdded = true
   }
 
   // Audio Input
@@ -125,7 +127,9 @@ async function generate(input) {
   outputOptions.push(`-map [${lastOutput}]`)
 
   if (audioFile && !isImageOutput) {
-    outputOptions.push(`-map ${numSlides}:a`)
+    const audioIndexOffset = watermarkAdded ? 1 : 0
+    const audioIndex = numSlides + audioIndexOffset
+    outputOptions.push(`-map ${audioIndex}:a`)
   }
   let videoDuration = Number(duration) || totalDuration
   outputOptions.push('-t ' + videoDuration)

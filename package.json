@@ -1,6 +1,6 @@
 {
   "name": "img2vid",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Using FFMPEG convert images to a video slideshow with audio and captions.",
   "main": "index.js",
   "scripts": {
