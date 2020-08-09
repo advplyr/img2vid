@@ -2,26 +2,48 @@ exports.input = {
   slides: [
     {
       path: 'examples/exampleData/countdown.mp4',
-      duration: 7,
+      duration: 7.175,
       isVideo: true,
       transition: {
         type: 'wipeleft',
-        duration: 3
+        duration: 1.5
       }
     },
     {
       path: 'examples/exampleData/mouse.jpg',
-      duration: 7,
-      zoomPan: {
-        endTime: 7,
-        startTime: 2,
-        xEnd: 0,
-        yEnd: 0,
-        xStart: 0,
-        yStart: 0,
-        zoomStart: 1,
-        zoomEnd: 2,
-        jitterFactor: 4
+      duration: 3,
+      // zoomPan: {
+      //   endTime: 4,
+      //   startTime: 2,
+      //   xEnd: 0,
+      //   yEnd: 0,
+      //   xStart: 0,
+      //   yStart: 0,
+      //   zoomStart: 1,
+      //   zoomEnd: 2,
+      //   jitterFactor: 4
+      // },
+      transition: {
+        type: 'wipeup',
+        duration: 1.5
+      }
+    },
+    {
+      path: 'examples/exampleData/scene.mp4',
+      duration: 7.315,
+      isVideo: true,
+      transition: {
+        type: 'wipeleft',
+        duration: 2
+      }
+    },
+    {
+      path: 'examples/exampleData/scene.mp4',
+      duration: 7.315,
+      isVideo: true,
+      transition: {
+        type: 'wipeleft',
+        duration: 2
       }
     }
   ],
@@ -48,6 +70,7 @@ exports.input = {
   output: 'examples/outputs/video.mp4',
   assOutput: 'examples/outputs/video.ass',
   forceScale: true,
+  // duration: 24.805,
   watermark: {
     path: 'examples/exampleData/FotoshoLogo.png',
     width: 125,
