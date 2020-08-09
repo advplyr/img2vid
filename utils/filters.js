@@ -108,6 +108,9 @@ function generateFilters(slides, forceScale, width, height) {
     complexFilters.push(complexFilter)
     lastOutput = `v${i + 1}`
     slideStart += (slides[i].duration)
+    if (slides[i].isVideo) {
+      slideStart -= transDuration
+    }
     if (slides.length - 2 === i) {
       lastTrans = transDuration
     }
