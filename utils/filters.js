@@ -88,13 +88,21 @@ function generateFilters(slides, forceScale, width, height) {
       lastOutputTag = slide.inputTag
     }
   } else if (forceScale) {
+    let prevTransitionDur = 0
     for (let i = 0; i < slides.length; i++) {
       const slide = slides[i]
+      slideTransitionDur = slide.transition ? slide.transition.duration || 0 : 0
+      let videoPauseFilt = ''
+      if (slide.isVideo && prevTransitionDur) {
+        let framesPause = Math.ceil(prevTransitionDur * 30)
+        videoPauseFilt = `loop=${framesPause}:1:0,setpts=N/FRAME_RATE/TB,`
+      }
       // TODO: Test performance hit of timebase
-      let scaleFilt = `[${i}:v]settb=AVTB,scale=${width}:${height}[${i}s]`
+      let scaleFilt = `[${i}:v]${videoPauseFilt}settb=AVTB,scale=${width}:${height}[${i}s]`
       complexFilters.push(scaleFilt)
       slide.inputTag = `${i}s`
       lastOutputTag = slide.inputTag
+      prevTransitionDur = slideTransitionDur
     }
   }
 

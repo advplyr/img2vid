@@ -6,40 +6,20 @@ exports.input = {
       isVideo: true,
       transition: {
         type: 'wipeleft',
-        duration: 1.5
+        duration: 1
       }
     },
     {
       path: 'examples/exampleData/mouse.jpg',
       duration: 3,
-      // zoomPan: {
-      //   endTime: 4,
-      //   startTime: 2,
-      //   xEnd: 0,
-      //   yEnd: 0,
-      //   xStart: 0,
-      //   yStart: 0,
-      //   zoomStart: 1,
-      //   zoomEnd: 2,
-      //   jitterFactor: 4
-      // },
       transition: {
         type: 'wipeup',
-        duration: 1.5
+        duration: 1
       }
     },
     {
       path: 'examples/exampleData/scene.mp4',
-      duration: 7.315,
-      isVideo: true,
-      transition: {
-        type: 'wipeleft',
-        duration: 2
-      }
-    },
-    {
-      path: 'examples/exampleData/scene.mp4',
-      duration: 7.315,
+      duration: 8.315,
       isVideo: true,
       transition: {
         type: 'wipeleft',
