@@ -2,7 +2,7 @@
 
 Generate videos or gifs from images. Includes captions, audio, transitions, zoompan and a watermark image.
 
-<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/transitions.webp" width="100%" align="center" />
+<img src="https://raw.githubusercontent.com/advplyr/img2vid/master/examples/outputs/transitions.webp" width="100%" align="center" />
 
 ## Requires
 
@@ -140,9 +140,9 @@ img2vid.render(payload)
 | y      | N        | 10      | Number        | Pixels                               |
 | alpha  | N        | 1       | Number        | Opacity of image (Between 0 and 1)   |
 
-<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/captions.webp" width="100%" align="center" />
+<img src="https://raw.githubusercontent.com/advplyr/img2vid/master/examples/outputs/captions.webp" width="100%" align="center" />
 
 ## Available Slide Transitions
 <a href="https://trac.ffmpeg.org/wiki/Xfade" target="_blank">View transitions types and demos</a> available from FFMPEG xfade filter.
 
-<img src="https://raw.githubusercontent.com/mcoop320/img2vid/master/examples/outputs/basic.webp" width="100%" align="center" />
+<img src="https://raw.githubusercontent.com/advplyr/img2vid/master/examples/outputs/basic.webp" width="100%" align="center" />
