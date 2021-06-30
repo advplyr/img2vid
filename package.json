@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "mcoop320",
+  "author": "advplyr",
   "license": "ISC",
   "dependencies": {
     "ffmpeg": "0.0.4",
@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mcoop320/img2vid.git"
+    "url": "https://github.com/advplyr/img2vid.git"
   },
-  "homepage": "https://github.com/mcoop320/img2vid",
+  "homepage": "https://github.com/advplyr/img2vid",
   "keywords": [
     "photo",
     "photos",
